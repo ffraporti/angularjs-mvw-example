@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="DesafioApp" class="des-fill-screen">
+<head>
+	<title>Desafio Angular</title>
+	<meta charset="utf-8" />
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet" />
+	<link href="stylesheets/desafio.css" rel="stylesheet" />
+	<script src="javascripts/angular.min.js"></script>
+	<script src="javascripts/desafio.js"></script>
+</head>
+
+<body ng-controller="DesafioCtrl" class="des-fill-screen" style="overflow-y: hidden">
+	
+	<div class="container bg-primary des-fill-screen">
+		<div class="row des-fill-screen">
+			<div class="col-xs-1 col-sm-1 col-md-3 col-lg-3"></div>
+			<div class="col-xs-10 col-sm-10 col-md-6 col-lg-6" style="max-height: 95%; height: 95%">
+				<div class="des-content-box">
+					
+					<div class="row">
+						<div class="col-xs-4">
+							<h4 class="des-headers">Comentários</h4>
+						</div>
+						<div class="col-xs-8">
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-default" ng-click="onUpdateClick()">Atualizar Lista
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="row" ng-show="!variables.postsLoading && !postsLoadError">
+						<div class="col-xs-4">
+							<div class="input-group input-group-sm">
+							  <span class="input-group-addon" id="sizing-addon3">Buscar por ID</span>
+							  <input ng-model="variables.idToSearch" ng-keyup="onSearchKeyUp()" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3">
+							</div>							
+						</div>
+						<div class="col-xs-8">
+							<p class="text-danger" style="margin-top: 5px" ng-show="variables.postsNotFoundError">Id não encontrado</p>
+						</div>
+					</div>
+					<div class="row" ng-show="variables.postsLoading && !postsLoadError">
+						<div class="col-xs-12">
+							<div class="progress">
+								<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+									<span class="sr-only">45% Complete</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" ng-show="variables.postsLoadError">
+						<div class="col-xs-8">
+							<p class="text-danger" style="margin-top: 5px" >Erro ao carregar os posts, atualize a página</p>
+						</div>
+					</div>
+					<div class="row des-content-row">
+						<div class="col-xs-12 des-content-container">
+							
+								<div class="panel panel-default" ng-repeat="post in variables.posts" style="margin-bottom: 2px;">
+								  	<div class="panel-heading des-panel" ng-click="onPostClick(post)">
+								    	<h3 class="panel-title">Post ID: {{post.id}}</h3>
+								  	</div>
+								  	<div class="panel-body" ng-show="post.activeContent">
+								  		<div class="row">
+								  			<div class="col-xs-12 des-comment-container" ng-repeat="comment in post.comments" data-id="{{comment.id}}">
+											    <h5 class="des-comment-title">{{comment.name}}</h5>
+											    <h6 class="des-comment-subtitle">{{comment.email}}</h6>
+											    <blockquote class="des-blockquote">
+											    	<p class="des-comment-body">{{comment.body}}</p>
+											    </blockquote>
+								  			</div>
+								  		</div>
+								    </div>
+								</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-xs-1 col-sm-1 col-md-3 col-lg-3"></div>
+		</div>
+	</div>
+
+</body>
+
+</html>
