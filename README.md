@@ -2,7 +2,7 @@
 This is a example of Front-End application using AngularJS + Bootstrap. The content is served by a Node + Express webserver.
 
 # Dependencies/Requirements
-In order to run this example, you must have Node (v4.7.2) and Npm Installed (v5.6.0). Once you have this requirement fulfilled, you may proceed.
+In order to run this example, you must have Node (v4.7.2) and Npm (v5.6.0) Installed. Once you have this requirement fulfilled, you may proceed.
 
 # How to run the project
 * Clone the repository
