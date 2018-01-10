@@ -16,3 +16,9 @@ The interesting files on this example are located under:
 * `desafio/public/javascripts/desafio.js`: script containing the angular scope and business logic
 * `desafio/public/stylesheets/desafio.css`: stylesheet containing some beauty CSS classes for the page
 * `desafio/views/index.html`: the html file containing the Posts page and its elements
+
+# Images
+If you are interest in seeing how the page turned out without installing the server, check the *.png* files inside this repository: 
+* `postIds.png`
+* `comments.png`
+* `search.png`
